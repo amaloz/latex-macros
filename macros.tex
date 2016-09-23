@@ -1,6 +1,15 @@
 \usepackage[mathscr]{euscript}
 \usepackage{xspace}
 
+\newcommand{\todoo}[1]{%
+    \mbox{}% prevent marginpar from being on previous paragraph
+    \marginpar{%
+        \colorbox{red!80!black}{\textcolor{white}{to-do}}%
+        \vspace*{-22pt}% hack!
+    }%
+    \textcolor{red}{#1}%
+}
+
 \newcommand{\AAA}{\ensuremath{\mathcal{A}}\xspace}
 \newcommand{\BBB}{\ensuremath{\mathcal{B}}\xspace}
 \newcommand{\CCC}{\ensuremath{\mathcal{C}}\xspace}
