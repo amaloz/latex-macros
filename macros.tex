@@ -1,5 +1,6 @@
 \usepackage[mathscr]{euscript}
 \usepackage{stmaryrd}
+\usepackage{framed}
 \usepackage{xspace}
 
 \newcommand{\todoo}[1]{%
@@ -16,15 +17,27 @@
 \newcommand{\CCC}{\ensuremath{\mathcal{C}}\xspace}
 \newcommand{\DDD}{\ensuremath{\mathcal{D}}\xspace}
 \newcommand{\EEE}{\ensuremath{\mathcal{E}}\xspace}
+\newcommand{\FFF}{\ensuremath{\mathcal{F}}\xspace}
+\newcommand{\GGG}{\ensuremath{\mathcal{G}}\xspace}
+\newcommand{\HHH}{\ensuremath{\mathcal{H}}\xspace}
+\newcommand{\III}{\ensuremath{\mathcal{I}}\xspace}
+\newcommand{\JJJ}{\ensuremath{\mathcal{J}}\xspace}
 \newcommand{\KKK}{\ensuremath{\mathcal{K}}\xspace}
-\newcommand{\NNN}{\ensuremath{\mathcal{N}}\xspace}
+\newcommand{\LLL}{\ensuremath{\mathcal{L}}\xspace}
 \newcommand{\MMM}{\ensuremath{\mathcal{M}}\xspace}
+\newcommand{\NNN}{\ensuremath{\mathcal{N}}\xspace}
+\newcommand{\OOO}{\ensuremath{\mathcal{O}}\xspace}
 \newcommand{\PPP}{\ensuremath{\mathcal{P}}\xspace}
+\newcommand{\QQQ}{\ensuremath{\mathcal{Q}}\xspace}
 \newcommand{\RRR}{\ensuremath{\mathcal{R}}\xspace}
 \newcommand{\SSS}{\ensuremath{\mathcal{S}}\xspace}
 \newcommand{\TTT}{\ensuremath{\mathcal{T}}\xspace}
+\newcommand{\UUU}{\ensuremath{\mathcal{U}}\xspace}
 \newcommand{\VVV}{\ensuremath{\mathcal{V}}\xspace}
+\newcommand{\WWW}{\ensuremath{\mathcal{W}}\xspace}
 \newcommand{\XXX}{\ensuremath{\mathcal{X}}\xspace}
+\newcommand{\YYY}{\ensuremath{\mathcal{Y}}\xspace}
+\newcommand{\ZZZ}{\ensuremath{\mathcal{Z}}\xspace}
 
 \newcommand{\DDDD}{\ensuremath{\mathscr{D}}\xspace}
 \newcommand{\EEEE}{\ensuremath{\mathscr{E}}\xspace}
@@ -46,3 +59,110 @@
 \newcommand{\dollar}{{\$}\xspace}
 
 \newcommand{\reffig}[1]{Figure~\ref{#1}\xspace}
+
+\newcommand{\bool}[1][\relax]{{\ensuremath{{\{0,1\}}^{#1}}}\xspace}
+\newcommand{\boolstar}{\bool[*]}
+
+\newcommand{\csp}{\secpar}
+
+% Party macros
+\newcommand{\Party}[1][\relax]{{\ensuremath{P_{#1}}}\xspace}
+\newcommand{\Partym}[1][\relax]{{\ensuremath{P_{#1}^*}}\xspace}
+\newcommand{\PA}{{\Party[1]}\xspace}
+\newcommand{\PB}{{\Party[2]}\xspace}
+\newcommand{\PC}{{\Party[3]}\xspace}
+\newcommand{\PAm}{{\Partym[1]}\xspace}
+\newcommand{\PBm}{{\Partym[2]}\xspace}
+\newcommand{\PCm}{{\Partym[3]}\xspace}
+
+\newcommand{\Func}[1][\relax]{\ensuremath{\mathcal{F}_\mathbf{#1}}\xspace}
+\newcommand{\Prot}[1][\relax]{\ensuremath{\Pi_\mathbf{#1}}\xspace}
+
+%
+% Environments
+%
+
+\newlength{\saveparindent}
+\setlength{\saveparindent}{\parindent}
+\newlength{\saveparskip}
+\setlength{\saveparskip}{\parskip}
+
+\newcounter{ctr}
+\newcounter{savectr}
+\newcounter{ectr}
+
+\newenvironment{tiret}{%
+  \begin{list}
+    {\hspace{1pt}\rule[0.5ex]{6pt}{1pt}\hfill}
+    {\labelwidth=15pt%
+      \labelsep=3pt%
+      \leftmargin=18pt%
+      \topsep=1pt%
+      \setlength{\listparindent}{\saveparindent}%
+      \setlength{\parsep}{\saveparskip}%
+      \setlength{\itemsep}{1pt}}
+}{%
+  \end{list}
+}
+
+\newenvironment{venum}{%
+  \begin{list}
+    {{\rmfamily \arabic{ctr}.}\hfill}
+    {\usecounter{ctr}%
+      \labelwidth=17pt%
+      \labelsep=6pt%
+      \leftmargin=23pt%
+      \topsep=.5pt%
+      %% \setlength{\listparindent}{\saveparindent}%
+      \setlength{\parsep}{\saveparskip}%
+      \setlength{\itemsep}{1pt}}
+}{%
+  \end{list}
+}
+
+\newenvironment{cenumerate}{
+  \begin{enumerate}
+    \setlength{\itemsep}{1pt}
+    \setlength{\parskip}{0pt}
+    \setlength{\parsep}{0pt}
+}{
+  \end{enumerate}
+}
+
+\newenvironment{citemize}{
+  \begin{itemize}
+    \setlength{\itemsep}{1pt}
+    \setlength{\parskip}{0pt}
+    \setlength{\parsep}{0pt}
+}{
+  \end{itemize}
+}
+
+\newenvironment{nfbox}{%
+  \footnotesize
+  \begin{framed}
+    \begin{minipage}{\linewidth}
+}{%
+    \end{minipage}
+  \end{framed}
+}
+
+\newenvironment{nfprot}[1]{%
+  \footnotesize
+  \begin{framed}
+    \begin{minipage}{\linewidth}
+      {\begin{center}\underline{\textbf{Protocol} #1}\end{center}}
+}{%
+    \end{minipage}
+  \end{framed}
+}
+
+\newenvironment{nffunc}[1]{%
+  \footnotesize
+  \begin{framed}
+    \begin{minipage}{\linewidth}
+       {\begin{center}\underline{\textbf{Functionality} #1}\end{center}}
+}{%
+    \end{minipage}
+  \end{framed}
+}
